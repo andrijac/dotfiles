@@ -35,8 +35,8 @@ check_symlinks() {
 }
 
 usage() {
-    echo "Sends or Gets my dotfiles from the server"
-    echo "Usage: dotsync [ -s | -g ] (Default: -s)"
+    echo "Sends or Updates my dotfiles from the server"
+    echo "Usage: dotsync [ -s | -u ]"
 }
 
 ####################################### Main functions
@@ -44,7 +44,7 @@ usage() {
 # dotsend: transfer dotfiles to the server
 dotsend() {
     if [ ! -e "$DIR" ]; then
-        echo "$DIR does not exist yet, please get the files first"
+        echo "$DIR does not exist yet, please update the files first"
         return
     fi
 
@@ -56,8 +56,8 @@ dotsend() {
     cd - &> /dev/null
 }
 
-# dotget: transfer dotfiles from server
-dotget() {
+# dotupdate: transfer dotfiles from server
+dotupdate() {
     if [ -d "$DIR" ]; then
         cd $DIR
         git pull &> /tmp/dotsync.log
@@ -79,10 +79,10 @@ dotget() {
 
 ############################################# Main
 
-if [ "$1" == "" ] || [ "$1" == "-s" ]; then
+if [ "$1" == "-s" ]; then
     dotsend
-elif [ "$1" == "-g" ]; then
-    dotget
+elif [ "$1" == "-u" ]; then
+    dotupdate
 else
     usage
 fi
