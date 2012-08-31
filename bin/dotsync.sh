@@ -4,10 +4,13 @@
 
 
 DIR="$HOME/.dotsync/dotfiles"
-FILE_LIST=`sed "s_^_$HOME/.dotsync/dotfiles/_g" $HOME/.dotsync/dotfiles/list`
+FILE_LIST=`sed "s_^_$HOME/.dotsync/dotfiles/_g" $DIR/list`
 
 ####################################### Helper functions
 check_symlinks() {
+    # Check for the availability of the function in_array
+    [[ "`type -t in_array`" != "function" ]] && source $DIR/.bash_functions
+
     symlink_exceptions="list README.md"
 
     cd $HOME
@@ -26,7 +29,6 @@ check_symlinks() {
             fi
         fi
         ln -s $i
-        echo $i
     done
     cd -
 }
@@ -57,7 +59,8 @@ dotsend() {
 dotget() {
     if [ -d "$DIR" ]; then
         cd $DIR
-        git pull
+        git pull &> /tmp/dotsync.log
+        [[ $? -ne 0 ]] && cat /tmp/dotsync.log
         cd -
     else
         # Need to initialize
