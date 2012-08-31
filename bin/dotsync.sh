@@ -73,7 +73,7 @@ dotupdate() {
 
     check_symlinks
 
-    source .bashrc
+    source $HOME/.bashrc
 }
 
 
