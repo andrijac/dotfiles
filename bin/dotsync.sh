@@ -48,8 +48,9 @@ dotsend() {
     cd $DIR
     git add .[A-z]* *
     git commit -a
-    git push
-    cd -
+    git push &> /tmp/dotsync.log
+    [[ $? -ne 0 ]] && cat /tmp/dotsync.log
+    cd - &> /dev/null
 }
 
 # dotget: transfer dotfiles from server
