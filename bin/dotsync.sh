@@ -35,14 +35,14 @@ check_symlinks() {
 }
 
 usage() {
-    echo "Sends or Updates my dotfiles from the server"
-    echo "Usage: dotsync [ -s | -u ]"
+    echo "Pushes or Updates my dotfiles from the server"
+    echo "Usage: dotsync [ -p | -u ]"
 }
 
 ####################################### Main functions
 
-# dotsend: transfer dotfiles to the server
-dotsend() {
+# dotpush: transfer dotfiles to the server
+dotpush() {
     if [ ! -e "$DIR" ]; then
         echo "$DIR does not exist yet, please update the files first"
         return
@@ -79,8 +79,8 @@ dotupdate() {
 
 ############################################# Main
 
-if [ "$1" == "-s" ]; then
-    dotsend
+if [ "$1" == "-p" ]; then
+    dotpush
 elif [ "$1" == "-u" ]; then
     dotupdate
 else
