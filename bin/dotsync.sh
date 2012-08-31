@@ -26,11 +26,12 @@ check_symlinks() {
             else
                 # Was a regular file! 
                 echo `basename $i` already exists and is not a symlink! Ignored.
+                echo "Make it a symlink and run 'dotsync.sh -g' again"
             fi
         fi
         ln -s $i
     done
-    cd -
+    cd - &> /dev/null
 }
 
 usage() {
@@ -61,13 +62,13 @@ dotget() {
         cd $DIR
         git pull &> /tmp/dotsync.log
         [[ $? -ne 0 ]] && cat /tmp/dotsync.log
-        cd -
+        cd - &> /dev/null
     else
         # Need to initialize
         mkdir -p $HOME/.dotsync &> /dev/null
         cd $HOME/.dotsync
         git clone git@github.com:carlesfe/dotfiles.git
-        cd -
+        cd - &> /dev/null
     fi
 
     check_symlinks
