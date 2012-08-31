@@ -77,10 +77,13 @@ require_machine valor-server && alias rm='trash'
 require_machine valor-server && export PATH=$PATH:$HOME/usr/bin:$HOME/usr/bin_$ARCH:$HOME/usr/local/bin:$HOME/usr/local/bin_$ARCH:/opt/vmd/bin:/srv/soft/gradle/1.0-milestone9/bin:$HOME/bin
 require_machine valor-server && export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/usr/lib:$HOME/usr/lib_$ARCH:$HOME/usr/local/lib:$HOME/usr/local/lib_$ARCH:/usr/local/lib
 
-#fightclub
+# fightclub
 require_machine fightclub.local && ARCH=`uname -m` export ARCH="$ARCH"_mach
 require_machine fightclub.local && alias ls="ls -G" 
 require_machine fightclub.local && export PATH=$PATH:/Applications/Scripts:/Applications/Xcode.app/Contents/Developer/usr/bin/
+
+# mini
+require_machine mini && export NNTPSERVER="snews://news.eternal-september.org"
 
 ######################################### Always the last line
 # Make 'source .bashrc' return 0
