@@ -4,7 +4,6 @@
 
 
 DIR="$HOME/.dotsync/dotfiles"
-FILE_LIST=`sed "s_^_$HOME/.dotsync/dotfiles/_g" $DIR/list`
 
 ####################################### Helper functions
 check_symlinks() {
@@ -14,6 +13,7 @@ check_symlinks() {
     symlink_exceptions="list README.md"
 
     cd $HOME
+    FILE_LIST=`sed "s_^_$HOME/.dotsync/dotfiles/_g" $DIR/list`
     for i in $FILE_LIST; do
         # Do not symlink exceptions
         basename="`basename $i`"
