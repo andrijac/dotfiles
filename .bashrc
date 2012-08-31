@@ -84,6 +84,7 @@ require_machine fightclub.local && export PATH=$PATH:/Applications/Scripts:/Appl
 
 # mini
 require_machine mini && export NNTPSERVER="snews://news.eternal-september.org"
+require_machine mini && alias tpy='transmission-remote-cli.py'
 
 ######################################### Always the last line
 # Make 'source .bashrc' return 0
