@@ -25,7 +25,7 @@ check_symlinks() {
                 rm "`basename $i`"
             else
                 # Was a regular file! 
-                echo `basename $i` already exists!
+                echo `basename $i` already exists and is not a symlink! Ignored.
             fi
         fi
         ln -s $i
