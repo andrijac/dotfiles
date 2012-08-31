@@ -3,6 +3,8 @@ dotfiles
 
 These are basically for my personal use, but feel free to check them and reuse some scripts.
 
+'dotsync.sh' is the tool which handles pushing/pulling to github
+
 Maybe the best tricks belong to .bashrc, where three functions 
 
 * Detect if GNU Screen is running in order to show an "S" on the prompt (PS1)
