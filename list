@@ -1,7 +1,7 @@
 .bash_functions
 .bashrc
-bin/
+bin
 .profile
 .screenrc
-.vim/
+.vim
 .vimrc
