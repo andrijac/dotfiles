@@ -72,6 +72,8 @@ dotupdate() {
     fi
 
     check_symlinks
+
+    source .bashrc
 }
 
 
