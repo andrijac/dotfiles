@@ -28,9 +28,11 @@ retval2() {
 }
 
 hostcolor() {
-	[[ "`hostname`" == "valor-server" ]] && echo 36
-	[[ "`hostname`" == "mini" ]] && echo 37
-	[[ "`hostname`" == "fightclub.local" ]] && echo 33
+	if   [ "`hostname`" == "valor-server" ]; then echo 32 # blue
+	elif [ "`hostname`" == "mini" ]; then echo 37 # white
+	elif [ "`hostname`" == "fightclub.local" ]; then echo 33 # yellow
+	else echo 35 # violet
+	fi
 }
 
 PROMPT_COMMAND='RET=$?'
