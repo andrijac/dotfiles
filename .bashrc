@@ -27,8 +27,14 @@ retval2() {
 	fi
 }
 
+hostcolor() {
+	[[ "`hostname`" == "valor-server" ]] && echo 36
+	[[ "`hostname`" == "mini" ]] && echo 37
+	[[ "`hostname`" == "fightclub.local" ]] && echo 33
+}
+
 PROMPT_COMMAND='RET=$?'
-PS1='\[\033[00;`retval`m\][`retval2 \!`] \[\033[00;37m\]`is_screen`\[\033[00;34m\]\w\[\033[00m\]\$ '
+PS1='\[\033[00;`retval`m\][`retval2 \!`] \[\033[00;37m\]`is_screen`\[\033[00;`hostcolor`m\]\h\[\033[00;37m\]:\[\033[00;34m\]\w\[\033[00m\]\$ '
 
 ############################################# Exports and aliases
 alias u="uptime"

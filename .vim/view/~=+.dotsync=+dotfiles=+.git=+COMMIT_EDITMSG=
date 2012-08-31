@@ -1,5 +1,7 @@
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 argglobal
+setlocal keymap=
+setlocal noarabic
 setlocal autoindent
 setlocal nobinary
 setlocal bufhidden=
@@ -9,14 +11,11 @@ setlocal nocindent
 setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
 setlocal cinoptions=
 setlocal cinwords=if,else,while,do,for,switch
-setlocal colorcolumn=
 setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
 setlocal commentstring=/*%s*/
 setlocal complete=.,w,b,u,t,i
 setlocal completefunc=
 setlocal nocopyindent
-setlocal cryptmethod=
-setlocal nocursorbind
 setlocal nocursorcolumn
 setlocal cursorline
 setlocal define=
@@ -67,7 +66,8 @@ setlocal nopreserveindent
 setlocal nopreviewwindow
 setlocal quoteescape=\\
 setlocal noreadonly
-setlocal norelativenumber
+setlocal norightleft
+setlocal rightleftcmd=search
 setlocal noscrollbind
 setlocal shiftwidth=4
 setlocal noshortname
@@ -88,18 +88,17 @@ setlocal tabstop=4
 setlocal tags=
 setlocal textwidth=72
 setlocal thesaurus=
-setlocal noundofile
 setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 30) / 60)
+let s:l = 1 - ((0 * winheight(0) + 33) / 66)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 1
-normal! 0
+normal! 016l
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost
 " vim: set ft=vim :

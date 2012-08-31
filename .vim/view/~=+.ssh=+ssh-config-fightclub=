@@ -12,7 +12,7 @@ setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
 setlocal cinoptions=
 setlocal cinwords=if,else,while,do,for,switch
 setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
-setlocal commentstring=#%s
+setlocal commentstring=/*%s*/
 setlocal complete=.,w,b,u,t,i
 setlocal completefunc=
 setlocal nocopyindent
@@ -20,20 +20,20 @@ setlocal nocursorcolumn
 setlocal cursorline
 setlocal define=
 setlocal dictionary=
-setlocal nodiff
+setlocal diff
 setlocal equalprg=
 setlocal errorformat=
 setlocal expandtab
-if &filetype != 'sh'
-setlocal filetype=sh
+if &filetype != ''
+setlocal filetype=
 endif
-setlocal foldcolumn=0
+setlocal foldcolumn=2
 setlocal foldenable
 setlocal foldexpr=0
 setlocal foldignore=#
 setlocal foldlevel=0
 setlocal foldmarker={{{,}}}
-setlocal foldmethod=manual
+setlocal foldmethod=diff
 setlocal foldminlines=1
 setlocal foldnestmax=20
 setlocal foldtext=foldtext()
@@ -45,8 +45,8 @@ setlocal iminsert=0
 setlocal imsearch=0
 setlocal include=
 setlocal includeexpr=
-setlocal indentexpr=GetShIndent()
-setlocal indentkeys=0{,0},!^F,o,O,e,0=then,0=do,0=else,0=elif,0=fi,0=esac,0=done,),0=;;,0=;&,0=fin,0=fil,0=fip,0=fir,0=fix
+setlocal indentexpr=
+setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
 setlocal noinfercase
 setlocal iskeyword=@,48-57,_,192-255
 setlocal keywordprg=
@@ -68,7 +68,7 @@ setlocal quoteescape=\\
 setlocal noreadonly
 setlocal norightleft
 setlocal rightleftcmd=search
-setlocal noscrollbind
+setlocal scrollbind
 setlocal shiftwidth=4
 setlocal noshortname
 setlocal nosmartindent
@@ -81,8 +81,8 @@ setlocal statusline=
 setlocal suffixesadd=
 setlocal swapfile
 setlocal synmaxcol=3000
-if &syntax != 'sh'
-setlocal syntax=sh
+if &syntax != ''
+setlocal syntax=
 endif
 setlocal tabstop=4
 setlocal tags=
@@ -90,15 +90,14 @@ setlocal textwidth=0
 setlocal thesaurus=
 setlocal nowinfixheight
 setlocal nowinfixwidth
-setlocal wrap
+setlocal nowrap
 setlocal wrapmargin=0
-silent! normal! zE
-let s:l = 28 - ((27 * winheight(0) + 33) / 66)
+let s:l = 48 - ((5 * winheight(0) + 33) / 66)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-28
-normal! 016l
+48
+normal! 0
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost
 " vim: set ft=vim :
