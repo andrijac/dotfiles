@@ -1,0 +1,11 @@
+startup_message off
+silencewait 300
+
+term xterm-256color
+hardstatus off
+caption always "%?%F%{= wk} * %:%{=u Kk}%? "
+hardstatus alwayslastline "%{= kr} %-Lw%{=b wk} %n%f %t %{-}%+Lw %=%{= dd} %-041=%{+b ky} %l %{= kw}| %{+b kg}%C%a %D %d %M %Y%{= db}"
+
+vbell off
+
+defscrollback 10000

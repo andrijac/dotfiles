@@ -1,4 +1,7 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
+
+source $HOME/.bash_functions
+
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
@@ -105,8 +108,8 @@ fi
 alias ll='ls -alFh'
 alias la='ls -A'
 alias l='ls -CF'
-alias rmdir='trash'
-alias rm='trash'
+[[ `require_machine valor-server` ]] && alias rmdir='trash'
+[[ `require_machine valor-server` ]] && alias rm='trash'
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile

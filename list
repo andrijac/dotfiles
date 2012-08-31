@@ -1,0 +1,7 @@
+.bash_functions
+.bashrc
+bin/
+.profile
+.screenrc
+.vim/
+.vimrc
