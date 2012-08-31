@@ -1,5 +1,8 @@
 # this file is meant to be sourced
 
+# Avoid being sourced twice
+[[ "`type -t in_array`" == "function" ]] && return 1 
+
 # Check if a value exists in an array
 #
 # $1        Needle  
