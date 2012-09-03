@@ -36,13 +36,11 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-"colorscheme peachpuff
-set background=dark
-colorscheme solarized
+colorscheme peachpuff
 set ruler
 set scrolloff=5
 set cursorline
-hi CursorLine   cterm=NONE ctermbg=16
+hi CursorLine   cterm=NONE ctermbg=darkgray
 hi TODO ctermfg=red ctermbg=darkgray
 set modelines=10
 " Disable syntax highlight for files larger than 50 MB

@@ -91,9 +91,6 @@ require_machine mini &&
     alias tpy='transmission-remote-cli.py'
 
 
-# valor or mini
-require_machine "mini valor-server" &&
-    eval `dircolors $HOME/.dir_colors`
 
 ######################################### Always the last line
 # Make 'source .bashrc' return 0
