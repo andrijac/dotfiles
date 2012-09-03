@@ -36,12 +36,12 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-colorscheme peachpuff
+colorscheme torte
 set ruler
 set scrolloff=5
-set cursorline
+"set cursorline
 "hi CursorLine   cterm=NONE ctermbg=darkgray
-hi TODO ctermfg=red ctermbg=darkgray
+"hi TODO ctermfg=red ctermbg=darkgray
 set modelines=10
 " Disable syntax highlight for files larger than 50 MB
 autocmd BufWinEnter * if line2byte(line("$") + 1) > 50000000 | syntax clear | endif

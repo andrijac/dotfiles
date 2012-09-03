@@ -1,11 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/srv/projects/valor/WEB/conf'
-let g:netrw_dirhist_2='/srv/projects/pmut/WEB/conf'
-let g:netrw_dirhist_3='/etc/gridengine'
-let g:netrw_dirhist_4='/srv/projects/valor/DATA/pdb/en'
-let g:netrw_dirhist_5='/srv/projects/valor/DATA/pdbe/sc'
-let g:netrw_dirhist_6='/srv/projects/valor/WEB/staging/static/run'
-let g:netrw_dirhist_7='/boot/grub'
-let g:netrw_dirhist_8='/etc/postfix'
-let g:netrw_dirhist_9='/home/carlesfe/Downloads/solarized'
+let g:netrw_dirhist_cnt =0
