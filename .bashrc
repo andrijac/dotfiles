@@ -31,7 +31,7 @@ hostcolor() {
 	if   [ "`hostname`" == "valor-server" ]; then echo 32 # blue
 	elif [ "`hostname`" == "mini" ]; then echo 37 # white
 	elif [ "`hostname`" == "fightclub.local" ]; then echo 33 # yellow
-	else echo 35 # violet
+	else echo 36 # cyan
 	fi
 }
 

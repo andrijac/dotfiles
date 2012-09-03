@@ -13,7 +13,7 @@ check_symlinks() {
     symlink_exceptions="list README.md"
 
     cd $HOME
-    FILE_LIST=`sed "s_^_$HOME/.dotsync/dotfiles/_g" $DIR/list`
+    FILE_LIST=`sed "s_^_.dotsync/dotfiles/_g" $DIR/list`
     for i in $FILE_LIST; do
         # Do not symlink exceptions
         basename="`basename $i`"
@@ -35,8 +35,9 @@ check_symlinks() {
 }
 
 usage() {
-    echo "Pushes or Updates my dotfiles from the server"
-    echo "Usage: dotsync [ -p | -u ]"
+    echo "Pushes or Updates my dotfiles from github"
+    echo "Usage: dotsync [ -p | -u  | --servers ]"
+    echo "Use '--servers' to propagate the current files to the servers"
 }
 
 ####################################### Main functions
@@ -76,7 +77,19 @@ dotupdate() {
     source $HOME/.bashrc
 }
 
+# Upload changes to the servers which don't have internet access
+dotservers() {
+    MACHINES="mn mt"
 
+    for m in $MACHINES; do
+        dir="`mktemp -d`"
+        sshfs $m: $dir
+        for i in `cat $HOME/.dotsync/dotfiles/list`; do cp -P $HOME/$i $dir; done
+        cp -r $HOME/.dotsync $dir &> /dev/null
+        fusermount -u $dir
+        rmdir $dir
+    done
+}
 
 
 ############################################# Main
@@ -85,6 +98,8 @@ if [ "$1" == "-p" ]; then
     dotpush
 elif [ "$1" == "-u" ]; then
     dotupdate
+elif [ "$1" == "--servers" ]; then
+    dotservers
 else
     usage
 fi
