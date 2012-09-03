@@ -54,6 +54,7 @@ export MANPATH=$MANPATH:/usr/local/man/
 export EDITOR="vim"
 export PAGER="less"
 export HISTCONTROL=ignoreboth
+export TERM=xterm-256color
 
 # Misc
 shopt -s cdspell # spell check
@@ -77,6 +78,7 @@ require_machine valor-server &&
     alias rm='trash' &&
     export PATH=$PATH:$HOME/usr/bin:$HOME/usr/bin_$ARCH:$HOME/usr/local/bin:$HOME/usr/local/bin_$ARCH:/opt/vmd/bin:/srv/soft/gradle/1.0-milestone9/bin:$HOME/bin &&
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/usr/lib:$HOME/usr/lib_$ARCH:$HOME/usr/local/lib:$HOME/usr/local/lib_$ARCH:/usr/local/lib &&
+    eval `dircolors $HOME/.dir_colors`
 
 # fightclub
 require_machine fightclub.local && 
