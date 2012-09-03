@@ -6,3 +6,4 @@ bin
 .vim
 .vimrc
 .Xresources
+.xsession
