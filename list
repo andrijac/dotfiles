@@ -1,7 +1,6 @@
 .bash_functions
 .bashrc
 bin
-.dir_colors
 .profile
 .screenrc
 .vim
