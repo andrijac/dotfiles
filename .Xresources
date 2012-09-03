@@ -1,8 +1,8 @@
 !!xterm*boldMode: false
-xterm*font: fixed
-xterm*boldFont: fixed
-xterm*background: black
-xterm*foreground: white
+*font: fixed
+*boldFont: fixed
+*background: black
+*foreground: white
 
-xterm*color4: #268bd2
-xterm*color12: #0087ff
+*color4: #268bd2
+*color12: #0087ff
