@@ -24,5 +24,6 @@ while true; do
     sleep 5
 done &
 
+parcellite -n -d &
 xscreensaver -nosplash &
 exec /usr/local/bin/dwm
