@@ -24,6 +24,7 @@ while true; do
     sleep 5
 done &
 
+xset +fp ~/.fonts
 parcellite -n -d &
 xscreensaver -nosplash &
 exec /usr/local/bin/dwm

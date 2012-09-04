@@ -1,8 +1,12 @@
-!!xterm*boldMode: false
-*font: fixed
-*boldFont: fixed
-*background: black
-*foreground: white
+xterm*font: -dosemu-vga-medium-r-normal--17-160-75-75-p-80-ibm-cp437
+xterm*boldFont: -dosemu-vga-medium-r-normal--17-160-75-75-p-80-ibm-cp437
+xterm*boldMode: false
+xterm*allowBoldFonts: false
+!*colorBDMode: true
+!!*faceName: Perfect DOS VGA 437
+!!*faceSize: 13
 
-*color4: #268bd2
-*color12: #0087ff
+xterm*background: black
+xterm*foreground: white
+xterm*color4: #268bd2
+xterm*color12: #0087ff
