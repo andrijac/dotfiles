@@ -24,6 +24,7 @@ while true; do
     sleep 5
 done &
 
+dropbox start &
 xset +fp ~/.fonts
 parcellite -n -d &
 xscreensaver -nosplash &
