@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# Mutes/unmutes the volume
+amixer sset Master toggle

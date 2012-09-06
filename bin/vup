@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# Increase the volume
+amixer set Master playback 2+

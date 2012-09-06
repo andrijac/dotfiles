@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Shortcut for "dict" which opens in an xterm and asks for the word to define
+# Nice to use with dmenu
+xterm -e "/usr/local/bin/dic_helper.sh"

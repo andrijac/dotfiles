@@ -1,4 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_cnt =3
 let g:netrw_dirhist_1='/home/carlesfe/.offlineimap'
 let g:netrw_dirhist_2='/home/carlesfe/Dropbox/Yendor'
+let g:netrw_dirhist_3='/home/carlesfe/learning/javacook2.CF/ch14'

@@ -15,11 +15,18 @@ while true; do
         mailsmsg="M: $newemails |"
     fi
 
+    snd_on="`amixer get Master | grep 'Front Left:' | grep -oE '\[[[:alpha:]]+\]$'`"
+    if [ "$snd_on" == "[on]" ]; then
+        vol="V: `amixer get Master | grep 'Front Left:' | egrep -o '[[:digit:]]+%'` |"
+    else
+        vol="V: XX% |"
+    fi
+
     date="`date +'%A %e, %k:%M'`"
     
     uptime="`uptime | awk -F "load average: " '{print $2}' | sed     's/,//g'` |"
 
-    string="$mailsmsg $uptime $date"
+    string="$mailsmsg $uptime $vol $date"
     xsetroot -name "$string"
     sleep 5
 done &

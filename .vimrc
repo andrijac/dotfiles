@@ -105,13 +105,22 @@ function! MySpellLang()
     if g:myLang >= len(g:myLangList) | let g:myLang = 0 | endif
 endfunction
 map <F4> :<C-U>call MySpellLang()<CR>
+map <F11> :<C-U>call WritingMode()<CR>
 
-" Still TODO
 function! WritingMode()
-    set guioptions-=r
-    set noruler
-    set linebreak
-    set lines=40 columns=100
-    set background=light
-    set laststatus=0
+    if (&foldcolumn != 12)
+"        set laststatus=0
+        set numberwidth=10
+        set foldcolumn=12
+        set noruler
+        hi FoldColumn ctermbg=none
+        hi LineNr ctermfg=0 ctermbg=none
+        hi NonText ctermfg=0
+    else
+"        set laststatus=2
+        set numberwidth=4
+        set foldcolumn=0
+        set ruler
+        execute 'colorscheme ' . g:colors_name
+    endif
 endfunction

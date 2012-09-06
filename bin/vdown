@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# Lower the volume
+amixer set Master playback 2-
