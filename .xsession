@@ -29,7 +29,6 @@ while true; do
 
     snd_on=`amixer get Master | grep 'Front Left:' | grep -oE '\[[[:alpha:]]+\]$' | grep -oE '[[:alpha:]]+'`
     vol=`amixer get Master | grep 'Front Left:' | egrep -o '[[:digit:]]+%' | egrep -o '[[:digit:]]+'`
-    echo vol: $vol
     # Weird poltergeist, comparing "$snd_on" == "on" produces an error
     if [ "$snd_on" != "off" ]; then
         if [ $vol -eq 0 ]; then vol="....."
@@ -56,7 +55,6 @@ while true; do
         elif [ $vol -gt 70 ] && [ $vol -lt 80 ]; then vol="MMMM."
         elif [ $vol -gt 80 ] && [ $vol -lt 90 ]; then vol="MMMMm"
         elif [ $vol -gt 90 ]; then vol="MMMMM"
-        else echo "#$vol#"
         fi
     fi
 
