@@ -124,3 +124,5 @@ function! WritingMode()
         execute 'colorscheme ' . g:colors_name
     endif
 endfunction
+
+map <F8> :TagbarToggle<CR>
