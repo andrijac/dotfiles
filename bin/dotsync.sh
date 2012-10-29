@@ -36,14 +36,14 @@ check_symlinks() {
 
 usage() {
     echo "Pushes or Updates my dotfiles from github"
-    echo "Usage: dotsync [ -p | -u  | --servers ]"
+    echo "Usage: dotsync [ -g | -p  | --servers ]"
     echo "Use '--servers' to propagate the current files to the servers"
 }
 
 ####################################### Main functions
 
-# dotpush: transfer dotfiles to the server
-dotpush() {
+# dotput: transfer dotfiles to the server
+dotput() {
     if [ ! -e "$DIR" ]; then
         echo "$DIR does not exist yet, please update the files first"
         return
@@ -57,8 +57,8 @@ dotpush() {
     cd - &> /dev/null
 }
 
-# dotupdate: transfer dotfiles from server
-dotupdate() {
+# dotget: transfer dotfiles from server
+dotget() {
     if [ -d "$DIR" ]; then
         cd $DIR
         git pull &> /tmp/dotsync.log
@@ -95,9 +95,9 @@ dotservers() {
 ############################################# Main
 
 if [ "$1" == "-p" ]; then
-    dotpush
+    dotput
 elif [ "$1" == "-u" ]; then
-    dotupdate
+    dotget 
 elif [ "$1" == "--servers" ]; then
     dotservers
 else

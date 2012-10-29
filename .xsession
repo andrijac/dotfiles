@@ -80,5 +80,6 @@ xscreensaver -nosplash &
 killpids="$killpids $!"
 
 echo $killpids > /tmp/killpids
+export DBUS_SESSION_BUS_ADDRESS=
 /usr/local/bin/dwm
 kill `cat /tmp/killpids`

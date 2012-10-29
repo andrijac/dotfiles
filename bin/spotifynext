@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+export DBUS_SESSION_BUS_ADDRESS=
+dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
