@@ -81,5 +81,6 @@ killpids="$killpids $!"
 
 echo $killpids > /tmp/killpids
 export DBUS_SESSION_BUS_ADDRESS=
+export DISPLAY=:0
 /usr/local/bin/dwm
 kill `cat /tmp/killpids`

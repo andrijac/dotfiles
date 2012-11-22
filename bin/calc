@@ -1,5 +1,1 @@
-#!/usr/bin/env bash
-
-# Open 'bc' inside a xterm
-numlockx on
-xterm -e 'bc -ql'
+xterm -e bc -l

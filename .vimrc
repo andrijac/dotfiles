@@ -108,10 +108,10 @@ map <F4> :<C-U>call MySpellLang()<CR>
 map <F11> :<C-U>call WritingMode()<CR>
 
 function! WritingMode()
-    if (&foldcolumn != 12)
+    if (&foldcolumn != 6)
 "        set laststatus=0
-        set numberwidth=10
-        set foldcolumn=12
+        set numberwidth=6
+        set foldcolumn=6
         set noruler
         hi FoldColumn ctermbg=none
         hi LineNr ctermfg=0 ctermbg=none

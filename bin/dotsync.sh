@@ -50,7 +50,7 @@ dotput() {
     fi
 
     cd $DIR
-    git add .[A-z]* *
+    git add .[A-z]* * -A
     git commit -a
     git push &> /tmp/dotsync.log
     [[ $? -ne 0 ]] && cat /tmp/dotsync.log
