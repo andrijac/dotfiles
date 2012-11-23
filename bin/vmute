@@ -2,3 +2,5 @@
 
 # Mutes/unmutes the volume
 amixer sset Master toggle
+
+$HOME/bin/refresh-statusbar.sh

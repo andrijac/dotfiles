@@ -2,3 +2,5 @@
 
 # Increase the volume
 amixer set Master playback 2+
+
+$HOME/bin/refresh-statusbar.sh
