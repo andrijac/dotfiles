@@ -96,7 +96,7 @@ dotservers() {
 
 if [ "$1" == "-p" ]; then
     dotput
-elif [ "$1" == "-u" ]; then
+elif [ "$1" == "-g" ]; then
     dotget 
 elif [ "$1" == "--servers" ]; then
     dotservers
