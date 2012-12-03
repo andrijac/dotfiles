@@ -49,7 +49,7 @@ alias l='ls -CF'
 alias ls="ls --color=auto"
 
 export ARCH="`uname -m`"
-export PATH=$PATH:bin/:/usr/local/bin
+export PATH=$PATH:bin:/usr/local/bin
 export MANPATH=$MANPATH:/usr/local/man/
 export EDITOR="vim"
 export PAGER="less"
@@ -83,7 +83,8 @@ require_machine valor-server &&
 require_machine fightclub.local && 
     ARCH=`uname -m` export ARCH="$ARCH"_mach &&
     alias ls="ls -G" &&
-    export PATH=$PATH:/Applications/Scripts:/Applications/Xcode.app/Contents/Developer/usr/bin/
+    export PATH=/opt/bin:$PATH:/Applications/Scripts:/Applications/Xcode.app/Contents/Developer/usr/bin:$HOME/.gem/bin &&
+	export GEM_HOME=$HOME/.gem
 
 # mini
 require_machine mini && 
