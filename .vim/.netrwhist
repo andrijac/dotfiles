@@ -1,6 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_cnt =8
 let g:netrw_dirhist_1='/home/carlesfe/.offlineimap'
 let g:netrw_dirhist_2='/home/carlesfe/Dropbox/Yendor'
 let g:netrw_dirhist_3='/home/carlesfe/learning/javacook2.CF/ch14'
 let g:netrw_dirhist_4='/home/carlesfe/workspace/medicahead_svn/.settings'
+let g:netrw_dirhist_5='/home/carlesfe/medicahead_testcase/snps'
+let g:netrw_dirhist_6='/home/carlesfe/medicahead_testcase/experiment02_1udu'
+let g:netrw_dirhist_7='/home/carlesfe/medicahead_testcase/experiment01_2hdj/tempdirs/tmp.d7A1QeLZT0'
+let g:netrw_dirhist_8='/home/carlesfe/medicahead_testcase/snps'

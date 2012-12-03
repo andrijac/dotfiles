@@ -50,7 +50,7 @@ dotput() {
     fi
 
     cd $DIR
-    git add .[A-z]* *
+    git add .[A-z]* * -A
     git commit -a
     git push &> /tmp/dotsync.log
     [[ $? -ne 0 ]] && cat /tmp/dotsync.log
@@ -96,7 +96,7 @@ dotservers() {
 
 if [ "$1" == "-p" ]; then
     dotput
-elif [ "$1" == "-u" ]; then
+elif [ "$1" == "-g" ]; then
     dotget 
 elif [ "$1" == "--servers" ]; then
     dotservers

@@ -47,6 +47,7 @@ alias ll='ls -alFh'
 alias la='ls -A'
 alias l='ls -CF'
 alias ls="ls --color=auto"
+alias lt="ls -ltrsa | tail"
 
 export ARCH="`uname -m`"
 export PATH=$PATH:bin:/usr/local/bin
@@ -91,6 +92,10 @@ require_machine mini &&
     export NNTPSERVER="snews://news.eternal-september.org" &&
     alias tpy='transmission-remote-cli.py'
 
+#santi-desktop2
+require_machine santi-desktop2 &&
+    export OPENBLAS_NUM_THREADS=1 &&
+    export PYTHONPATH=/bsc/projects/ed2md/software/src:$PYTHONPATH
 
 
 ######################################### Always the last line
