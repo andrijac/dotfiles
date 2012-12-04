@@ -50,7 +50,7 @@ alias ls="ls --color=auto"
 alias lt="ls -ltrsa | tail"
 
 export ARCH="`uname -m`"
-export PATH=$PATH:bin/:/usr/local/bin
+export PATH=$PATH:bin:/usr/local/bin
 export MANPATH=$MANPATH:/usr/local/man/
 export EDITOR="vim"
 export PAGER="less"
@@ -85,13 +85,18 @@ require_machine valor-server &&
 require_machine fightclub.local && 
     ARCH=`uname -m` export ARCH="$ARCH"_mach &&
     alias ls="ls -G" &&
-    export PATH=$PATH:/Applications/Scripts:/Applications/Xcode.app/Contents/Developer/usr/bin/
+    export PATH=/opt/bin:$PATH:/Applications/Scripts:/Applications/Xcode.app/Contents/Developer/usr/bin:$HOME/.gem/bin &&
+	export GEM_HOME=$HOME/.gem
 
 # mini
 require_machine mini && 
     export NNTPSERVER="snews://news.eternal-september.org" &&
     alias tpy='transmission-remote-cli.py'
 
+#santi-desktop2
+require_machine santi-desktop2 &&
+    export OPENBLAS_NUM_THREADS=1 &&
+    export PYTHONPATH=/bsc/projects/ed2md/software/src:$PYTHONPATH
 
 
 ######################################### Always the last line
