@@ -78,7 +78,8 @@ require_machine valor-server &&
     alias rmdir='trash' &&
     alias rm='trash' &&
     export PATH=$PATH:$HOME/usr/bin:$HOME/usr/bin_$ARCH:$HOME/usr/local/bin:$HOME/usr/local/bin_$ARCH:/opt/vmd/bin:/srv/soft/gradle/1.0-milestone9/bin:$HOME/bin &&
-    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/usr/lib:$HOME/usr/lib_$ARCH:$HOME/usr/local/lib:$HOME/usr/local/lib_$ARCH:/usr/local/lib 
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/usr/lib:$HOME/usr/lib_$ARCH:$HOME/usr/local/lib:$HOME/usr/local/lib_$ARCH:/usr/local/lib &&
+    export DISPLAY=:0
 
 # fightclub
 require_machine fightclub.local && 
