@@ -47,7 +47,7 @@ alias ll='ls -alFh'
 alias la='ls -A'
 alias l='ls -CF'
 alias ls="ls --color=auto"
-alias lt="ls -ltrsa | tail"
+function lt() { ls -ltrsa "$@" | tail; }
 
 export ARCH="`uname -m`"
 export PATH=$PATH:bin:/usr/local/bin
