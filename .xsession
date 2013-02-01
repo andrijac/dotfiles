@@ -34,13 +34,10 @@ killpids="$killpids $!"
 
 echo $killpids > /tmp/killpids
 
-# Some global variables and settings
-export DBUS_SESSION_BUS_ADDRESS=
-export DISPLAY=:0
-xhost +
+setxkbmap -option ctrl:nocaps
 
 # Launch dwm
-/usr/local/bin/dwm
+/opt/dwm-6.0/dwm
 
 # When finished, kill the related X processes
 kill `cat /tmp/killpids`

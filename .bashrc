@@ -28,7 +28,7 @@ retval2() {
 }
 
 hostcolor() {
-	if   [ "`hostname`" == "valor-server" ]; then echo 32 # blue
+	if   [ "`hostname`" == "mmb01" ]; then echo 32 # blue
 	elif [ "`hostname`" == "mini" ]; then echo 37 # white
 	elif [ "`hostname`" == "fightclub.local" ]; then echo 33 # yellow
 	else echo 36 # cyan
