@@ -24,7 +24,7 @@ killpids="$killpids $!"
 
 # Other software
 numlockx on
-dropbox start &
+$HOME/.dropbox-dist/dropboxd &
 killpids="$killpids $!"
 xset +fp ~/.fonts
 parcellite -n -d &

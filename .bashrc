@@ -73,29 +73,24 @@ source $HOME/bin/j.sh
 
 ######################################### Machine-specific
 
-# valor-server
-require_machine valor-server && 
+require_machine mmb01 && 
     alias rmdir='trash' &&
     alias rm='trash' &&
     export PATH=$PATH:$HOME/usr/bin:$HOME/usr/bin_$ARCH:$HOME/usr/local/bin:$HOME/usr/local/bin_$ARCH:/opt/vmd/bin:/srv/soft/gradle/1.0-milestone9/bin:$HOME/bin &&
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/usr/lib:$HOME/usr/lib_$ARCH:$HOME/usr/local/lib:$HOME/usr/local/lib_$ARCH:/usr/local/lib &&
-    export DISPLAY_OLD=$DISPLAY &&
-    export DISPLAY=:0
+    alias dropbox='python $HOME/.dropbox-dist/dropbox.py'
 
-# fightclub
 require_machine fightclub.local && 
     ARCH=`uname -m` export ARCH="$ARCH"_mach &&
     alias ls="ls -G" &&
     export PATH=/opt/bin:$PATH:/Applications/Scripts:/Applications/Xcode.app/Contents/Developer/usr/bin:$HOME/.gem/bin &&
 	export GEM_HOME=$HOME/.gem
 
-# mini
 require_machine mini && 
     export NNTPSERVER="snews://news.eternal-september.org" &&
     alias tpy='transmission-remote-cli.py'
 
-#santi-desktop2
-require_machine santi-desktop2 &&
+require_machine mmb00 &&
     export OPENBLAS_NUM_THREADS=1 &&
     export PYTHONPATH=/bsc/projects/ed2md/software/src:$PYTHONPATH
 
