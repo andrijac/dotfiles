@@ -35,7 +35,10 @@ killpids="$killpids $!"
 echo $killpids > /tmp/killpids
 
 setxkbmap -option ctrl:nocaps
+xsetroot -solid black
+xsetroot -cursor_name arrow
 
+export PATH=$HOME/bin:$PATH
 # Launch dwm
 /opt/dwm-6.0/dwm
 
