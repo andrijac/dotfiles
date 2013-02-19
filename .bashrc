@@ -47,7 +47,10 @@ alias ll='ls -alFh'
 alias la='ls -A'
 alias l='ls -CF'
 alias ls="ls --color=auto"
+alias lpr="lpr -P Ochoa"
+alias lpq="lpq -P Ochoa"
 function lt() { ls -ltrsa "$@" | tail; }
+function d() { dict "$@" | pager; }
 
 export ARCH="`uname -m`"
 export PATH=$PATH:bin:/usr/local/bin
@@ -78,7 +81,9 @@ require_machine mmb01 &&
     alias rm='trash' &&
     export PATH=$PATH:/srv/soft/vmd/bin:/srv/soft/gradle/1.0-milestone9/bin:$HOME/bin &&
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/usr/lib:$HOME/usr/lib_$ARCH:$HOME/usr/local/lib:$HOME/usr/local/lib_$ARCH:/usr/local/lib &&
-    alias dropbox='python $HOME/.dropbox-dist/dropbox.py'
+    alias dropbox='python $HOME/.dropbox-dist/dropbox.py' &&
+    source /srv/soft/environment-modules/3.2.10/Modules/3.2.10/init/bash &&
+    alias eclipse='/srv/soft/eclipse/juno-SR1-jee/eclipse'
 
 require_machine fightclub.local && 
     ARCH=`uname -m` export ARCH="$ARCH"_mach &&
