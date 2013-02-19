@@ -91,8 +91,7 @@ require_machine mini &&
     alias tpy='transmission-remote-cli.py'
 
 require_machine mmb00 &&
-    export OPENBLAS_NUM_THREADS=1 &&
-    export PYTHONPATH=/bsc/projects/ed2md/software/src:$PYTHONPATH
+    export OPENBLAS_NUM_THREADS=1 
 
 
 ######################################### Always the last line
