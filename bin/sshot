@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+FILE=`tempfile -d $HOME/Downloads -s .png -p sshot`; xwd | convert xwd:- $FILE; gimp --no-splash $FILE
