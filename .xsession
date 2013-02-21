@@ -24,7 +24,7 @@ killpids="$killpids $!"
 
 # Other software
 numlockx on
-dropbox start &
+$HOME/.dropbox-dist/dropboxd &
 killpids="$killpids $!"
 xset +fp ~/.fonts
 parcellite -n -d &
@@ -34,13 +34,13 @@ killpids="$killpids $!"
 
 echo $killpids > /tmp/killpids
 
-# Some global variables and settings
-export DBUS_SESSION_BUS_ADDRESS=
-export DISPLAY=:0
-xhost +
+setxkbmap -option ctrl:nocaps
+xsetroot -solid black
+xsetroot -cursor_name arrow
 
+export PATH=$HOME/bin:$PATH
 # Launch dwm
-/usr/local/bin/dwm
+/opt/dwm-6.0/dwm
 
 # When finished, kill the related X processes
 kill `cat /tmp/killpids`

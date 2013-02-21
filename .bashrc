@@ -28,15 +28,17 @@ retval2() {
 }
 
 hostcolor() {
-	if   [ "`hostname`" == "valor-server" ]; then echo 32 # blue
+	if   [ "`hostname`" == "mmb01" ]; then echo 32 # blue
 	elif [ "`hostname`" == "mini" ]; then echo 37 # white
 	elif [ "`hostname`" == "fightclub.local" ]; then echo 33 # yellow
 	else echo 36 # cyan
 	fi
 }
 
+. $HOME/bin/gitprompt.sh
+
 PROMPT_COMMAND='RET=$?'
-PS1='\[\033[00;`retval`m\][`retval2 \!`] \[\033[00;37m\]`is_screen`\[\033[00;`hostcolor`m\]\h\[\033[00;37m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+PS1='\[\033[00;`retval`m\][`retval2 \!`] \[\033[00;37m\]`is_screen`\[\033[00;`hostcolor`m\]\h\[\033[00;37m\]:\[\033[01;34m\]\w\[\033[1;95m\]`setGitPrompt`\[\033[00m\]\$ '
 
 ############################################# Exports and aliases
 alias u="uptime"
@@ -47,7 +49,10 @@ alias ll='ls -alFh'
 alias la='ls -A'
 alias l='ls -CF'
 alias ls="ls --color=auto"
-alias lt="ls -ltrsa | tail"
+alias lpr="lpr -P Ochoa"
+alias lpq="lpq -P Ochoa"
+function lt() { ls -ltrsa "$@" | tail; }
+function d() { dict "$@" | pager; }
 
 export ARCH="`uname -m`"
 export PATH=$PATH:bin:/usr/local/bin
@@ -73,29 +78,27 @@ source $HOME/bin/j.sh
 
 ######################################### Machine-specific
 
-# valor-server
-require_machine valor-server && 
+require_machine mmb01 && 
     alias rmdir='trash' &&
     alias rm='trash' &&
-    export PATH=$PATH:$HOME/usr/bin:$HOME/usr/bin_$ARCH:$HOME/usr/local/bin:$HOME/usr/local/bin_$ARCH:/opt/vmd/bin:/srv/soft/gradle/1.0-milestone9/bin:$HOME/bin &&
-    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/usr/lib:$HOME/usr/lib_$ARCH:$HOME/usr/local/lib:$HOME/usr/local/lib_$ARCH:/usr/local/lib 
+    export PATH=$PATH:/srv/soft/vmd/bin:/srv/soft/gradle/1.0-milestone9/bin:$HOME/bin &&
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/usr/lib:$HOME/usr/lib_$ARCH:$HOME/usr/local/lib:$HOME/usr/local/lib_$ARCH:/usr/local/lib &&
+    alias dropbox='python $HOME/.dropbox-dist/dropbox.py' &&
+    source /srv/soft/environment-modules/3.2.10/Modules/3.2.10/init/bash &&
+    alias eclipse='/srv/soft/eclipse/juno-SR1-jee/eclipse'
 
-# fightclub
 require_machine fightclub.local && 
     ARCH=`uname -m` export ARCH="$ARCH"_mach &&
     alias ls="ls -G" &&
     export PATH=/opt/bin:$PATH:/Applications/Scripts:/Applications/Xcode.app/Contents/Developer/usr/bin:$HOME/.gem/bin &&
 	export GEM_HOME=$HOME/.gem
 
-# mini
 require_machine mini && 
     export NNTPSERVER="snews://news.eternal-september.org" &&
     alias tpy='transmission-remote-cli.py'
 
-#santi-desktop2
-require_machine santi-desktop2 &&
-    export OPENBLAS_NUM_THREADS=1 &&
-    export PYTHONPATH=/bsc/projects/ed2md/software/src:$PYTHONPATH
+require_machine mmb00 &&
+    export OPENBLAS_NUM_THREADS=1 
 
 
 ######################################### Always the last line
