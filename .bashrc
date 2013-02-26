@@ -84,8 +84,7 @@ require_machine mmb01 &&
     export PATH=$PATH:/srv/soft/vmd/bin:/srv/soft/gradle/1.0-milestone9/bin:$HOME/bin &&
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/usr/lib:$HOME/usr/lib_$ARCH:$HOME/usr/local/lib:$HOME/usr/local/lib_$ARCH:/usr/local/lib &&
     alias dropbox='python $HOME/.dropbox-dist/dropbox.py' &&
-    source /srv/soft/environment-modules/3.2.10/Modules/3.2.10/init/bash &&
-    alias eclipse='/srv/soft/eclipse/juno-SR1-jee/eclipse'
+    source /srv/soft/environment-modules/3.2.10/Modules/3.2.10/init/bash
 
 require_machine fightclub.local && 
     ARCH=`uname -m` export ARCH="$ARCH"_mach &&
