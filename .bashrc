@@ -35,7 +35,11 @@ hostcolor() {
 	fi
 }
 
-. $HOME/bin/gitprompt.sh
+if [[ "`hostname`" =~ mmb ]]; then
+    function setGitPrompt() { echo; }
+else
+    . $HOME/bin/gitprompt.sh
+fi
 
 PROMPT_COMMAND='RET=$?'
 PS1='\[\033[00;`retval`m\][`retval2 \!`] \[\033[00;37m\]`is_screen`\[\033[00;`hostcolor`m\]\h\[\033[00;37m\]:\[\033[01;34m\]\w\[\033[1;95m\]`setGitPrompt`\[\033[00m\]\$ '
