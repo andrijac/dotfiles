@@ -35,7 +35,8 @@ hostcolor() {
 	fi
 }
 
-if [[ "`hostname`" =~ mmb ]]; then
+if [ "`hostname`" == "mmb" ] || [ "`hostname`" == "mmb2" ]; then
+    # Disable setGitPrompt as the python version is too old
     function setGitPrompt() { echo; }
 else
     . $HOME/bin/gitprompt.sh
@@ -100,9 +101,11 @@ require_machine mini &&
     export NNTPSERVER="snews://news.eternal-september.org" &&
     alias tpy='transmission-remote-cli.py'
 
-require_machine mmb00 &&
-    export OPENBLAS_NUM_THREADS=1 
+require_machine mmb &&
+    export TERM=xterm
 
+require_machine mmb2 &&
+    export TERM=xterm
 
 ######################################### Always the last line
 # Make 'source .bashrc' return 0
