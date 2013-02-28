@@ -90,7 +90,7 @@ require_machine mmb01 &&
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/usr/lib:$HOME/usr/lib_$ARCH:$HOME/usr/local/lib:$HOME/usr/local/lib_$ARCH:/usr/local/lib &&
     alias dropbox='python $HOME/.dropbox-dist/dropbox.py' &&
     source /srv/soft/environment-modules/3.2.10/Modules/3.2.10/init/bash &&
-    alias op='xdg-open' &&
+    alias o='xdg-open' &&
     export DBUS_SESSION_BUS_ADDRESS=
 
 require_machine fightclub.local && 
