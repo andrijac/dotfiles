@@ -56,6 +56,7 @@ alias l='ls -CF'
 alias ls="ls --color=auto"
 alias lpr="lpr -P Ochoa"
 alias lpq="lpq -P Ochoa"
+alias mlq="module load qsar-bundle"
 function lt() { ls -ltrsa "$@" | tail; }
 function d() { dict "$@" | pager; }
 function psgrep() { ps axuf | grep -v grep | grep "$@" -i --color=auto; }
