@@ -22,7 +22,7 @@ while true; do
 done &
 killpids="$killpids $!"
 
-# Other software
+# Other software which will be killed when xdm closes
 numlockx on
 $HOME/.dropbox-dist/dropboxd &
 killpids="$killpids $!"
@@ -34,6 +34,11 @@ killpids="$killpids $!"
 
 echo $killpids > /tmp/killpids
 
+# Software that will NOT be killed when xdm closes
+ps -A | \grep SCREEN
+[[ $? -eq 1 ]] && screen -md
+
+# Misc configuration
 setxkbmap -option ctrl:nocaps
 xsetroot -solid black
 xsetroot -cursor_name arrow
