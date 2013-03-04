@@ -1,0 +1,16 @@
+bind ,:cmd;alt   push left  bar-resize:2*screenSizeX/3
+bind .:cmd;alt   push right  bar-resize:screenSizeX/3
+bind /:cmd;alt    move screenOriginX;screenOriginY screenSizeX;screenSizeY
+
+bind ,:ctrl;alt     focus left
+bind .:ctrl;alt   focus right
+bind /:ctrl;alt     focus behind
+
+bind =:ctrl;alt      resize +10% +0
+bind -:ctrl;alt      resize -10% +0
+
+bind =:cmd;alt   resize -10% +0 top-right
+bind -:cmd;alt   resize +10% +0 top-right
+
+bind right:shift;alt  resize -10% +0 bottom-right
+bind left:shift;alt   resize +10% +0 bottom-right
