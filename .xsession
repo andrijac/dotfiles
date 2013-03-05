@@ -1,7 +1,6 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-source $HOME/.bashrc
-[[ -f $HOME/.Xdefaults ]] && xrdb -merge $HOME/.Xdefaults
+if [ -f $HOME/.Xdefaults ]; then xrdb -merge $HOME/.Xdefaults; fi
 
 # Processes that we will kill when we close X
 killpids=""
@@ -36,7 +35,7 @@ echo $killpids > /tmp/killpids
 
 # Software that will NOT be killed when xdm closes
 ps -A | \grep SCREEN
-[[ $? -eq 1 ]] && screen -md
+if [ $? -eq 1 ]; then screen -md; fi
 
 # Misc configuration
 setxkbmap -option ctrl:nocaps
