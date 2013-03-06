@@ -3,7 +3,7 @@ source $HOME/.bash_functions
 
 ################################################# Color prompt
 is_screen() {
-	screen="`ps -a | grep SCREEN | grep -v grep`"
+	screen="`ps -A | grep -i "screen$" | grep -v grep`"
 	if [ "$screen" != "" ]; then echo "S "; fi
 }
 retval() {
@@ -56,9 +56,11 @@ alias l='ls -CF'
 alias ls="ls --color=auto"
 alias lpr="lpr -P Ochoa"
 alias lpq="lpq -P Ochoa"
+alias mlq="module load qsar-bundle"
 function lt() { ls -ltrsa "$@" | tail; }
 function d() { dict "$@" | pager; }
 function psgrep() { ps axuf | grep -v grep | grep "$@" -i --color=auto; }
+function fname() { find . -iname "*$@*"; } 
 
 export ARCH="`uname -m`"
 export PATH=$PATH:bin:/usr/local/bin
