@@ -34,7 +34,7 @@ killpids="$killpids $!"
 echo $killpids > /tmp/killpids
 
 # Software that will NOT be killed when xdm closes
-ps -A | \grep SCREEN
+ps -A | \grep "screen$"
 if [ $? -eq 1 ]; then screen -md; fi
 
 # Misc configuration

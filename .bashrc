@@ -3,7 +3,7 @@ source $HOME/.bash_functions
 
 ################################################# Color prompt
 is_screen() {
-	screen="`ps -a | grep SCREEN | grep -v grep`"
+	screen="`ps -A | grep -i "screen$" | grep -v grep`"
 	if [ "$screen" != "" ]; then echo "S "; fi
 }
 retval() {
