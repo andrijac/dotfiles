@@ -3,7 +3,7 @@ dotfiles
 
 These are basically for my personal use, but feel free to check them and reuse some scripts.
 
-'bin/dotsync.sh' is the tool which handles pushing/pulling to github
+`bin/dotsync.sh` is the tool which handles pushing/pulling to github
 
 Maybe the best tricks belong to .bashrc, where three functions 
 
@@ -18,3 +18,5 @@ machine it's running on
 # Override the "--color=auto" which doesn't work on a Mac
 require_machine fightclub && alias ls='ls -G' 
 ```
+
+There is some good external stuff, like rupa/j2 magicmonty/bash-git-prompt
