@@ -8,3 +8,4 @@ bin
 .Xresources
 .xsession
 .slate
+.inputrc
