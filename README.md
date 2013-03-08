@@ -19,4 +19,4 @@ machine it's running on
 require_machine fightclub && alias ls='ls -G' 
 ```
 
-There is some good external stuff, like rupa/j2 magicmonty/bash-git-prompt
+There is some good external stuff, like [j.py](https://github.com/rupa/j2) or the [git prompt](https://github.com/magicmonty/bash-git-prompt)
