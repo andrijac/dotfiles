@@ -73,7 +73,6 @@ export TERM=xterm-256color
 # Misc
 shopt -s cdspell # spell check
 shopt -s histappend # history append
-set -o vi
 umask 0002
 
 ############################################## Other software
