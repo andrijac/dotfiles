@@ -61,6 +61,9 @@ function lt() { ls -ltrsa "$@" | tail; }
 function d() { dict "$@" | pager; }
 function psgrep() { ps axuf | grep -v grep | grep "$@" -i --color=auto; }
 function fname() { find . -iname "*$@*"; } 
+# Fix 'cd folder' errors like 'c dfolder' which I do a lot
+function c() { cmd="cd `echo $@ | cut -c 2-`"; echo $cmd; $cmd; }
+
 
 export ARCH="`uname -m`"
 export PATH=$PATH:$HOME/bin:/usr/local/bin
