@@ -57,6 +57,7 @@ alias ls="ls --color=auto"
 alias lpr="lpr -P Ochoa"
 alias lpq="lpq -P Ochoa"
 alias mlq="module load qsar-bundle"
+alias pgrep="pgrep -l"
 function lt() { ls -ltrsa "$@" | tail; }
 function d() { dict "$@" | pager; }
 function psgrep() { ps axuf | grep -v grep | grep "$@" -i --color=auto; }
@@ -96,7 +97,8 @@ require_machine mmb01 &&
     alias dropbox='python $HOME/.dropbox-dist/dropbox.py' &&
     source /srv/soft/environment-modules/3.2.10/Modules/3.2.10/init/bash &&
     alias o='xdg-open' &&
-    export DBUS_SESSION_BUS_ADDRESS=
+    export DBUS_SESSION_BUS_ADDRESS= &&
+    ssh-agent-manage
 
 require_machine fightclub.local && 
     ARCH=`uname -m` export ARCH="$ARCH"_mach &&

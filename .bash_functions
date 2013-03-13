@@ -57,3 +57,19 @@ finish() {
 }
 
 true
+
+# Check for ssh-agent
+ssh-agent-manage() {
+    pid=`\pgrep ssh-agent`
+    if [[ -z $pid ]]; then
+        # Not running
+        eval $(ssh-agent)
+        ssh-add
+    else
+        # Running, re-set variables
+        export SSH_AGENT_PID=$pid
+        id=$(( $pid -1 ))
+        export SSH_AUTH_SOCK="`find /tmp/ssh* -iname agent.$id`"
+    fi
+}
+
