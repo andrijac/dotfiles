@@ -35,7 +35,7 @@ hostcolor() {
 	fi
 }
 
-if [ "`hostname`" == "mmb" ] || [ "`hostname`" == "mmb2" ]; then
+if [ "`hostname`" == "mmb" ] || [ "`hostname`" == "mmb2" ] || [ "`hostname`" == "dtransfer1" ]; then
     # Disable setGitPrompt as the python version is too old
     function setGitPrompt() { echo; }
 else
@@ -113,9 +113,6 @@ require_machine mmb &&
 
 require_machine mmb2 &&
     export TERM=xterm
-
-require_machine dtransfer1 &&
-    setGitPrompt() { echo; } # Disable setGitPrompt because git is not installed 
 
 ######################################### Always the last line
 # Make 'source .bashrc' return 0
