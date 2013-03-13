@@ -114,6 +114,9 @@ require_machine mmb &&
 require_machine mmb2 &&
     export TERM=xterm
 
+require_machine dtransfer1 &&
+    setGitPrompt() { echo; } # Disable setGitPrompt because git is not installed 
+
 ######################################### Always the last line
 # Make 'source .bashrc' return 0
 true
