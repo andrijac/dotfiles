@@ -104,7 +104,9 @@ require_machine fightclub.local &&
     ARCH=`uname -m` export ARCH="$ARCH"_mach &&
     alias ls="ls -G" &&
     export PATH=/opt/bin:$PATH:/Applications/Scripts:/Applications/Xcode.app/Contents/Developer/usr/bin:$HOME/.gem/bin &&
-	export GEM_HOME=$HOME/.gem
+	export GEM_HOME=$HOME/.gem &&
+	function lt() { \ls -ltrsaG "$@" | tail; } &&
+	alias o='open'
 
 require_machine mini && 
     export NNTPSERVER="snews://news.eternal-september.org" &&
