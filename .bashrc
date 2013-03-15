@@ -6,7 +6,7 @@ is_screen() {
 	if [[ "$HOSTNAME" == "fightclub" ]]; then 
 		screen="`ps -A | grep -i "screen$" | grep -v grep`"
 	else
-		screen="`ps -axuf | grep "^$USER" | grep -i "screen$" | grep -v grep`"
+		screen="`ps axuf | grep "^$USER" | grep -i "screen$" | grep -v grep`"
 	fi
 	
 	if [ "$screen" != "" ]; then echo "S "; fi
