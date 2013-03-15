@@ -3,7 +3,12 @@ source $HOME/.bash_functions
 
 ################################################# Color prompt
 is_screen() {
-	screen="`ps -A | grep -i "screen$" | grep -v grep`"
+	if [[ "$HOSTNAME" == "fightclub" ]]; then 
+		screen="`ps -A | grep -i "screen$" | grep -v grep`"
+	else
+		screen="`ps -axuf | grep "^$USER" | grep -i "screen$" | grep -v grep`"
+	fi
+	
 	if [ "$screen" != "" ]; then echo "S "; fi
 }
 retval() {
