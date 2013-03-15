@@ -30,7 +30,7 @@ retval2() {
 hostcolor() {
 	if   [ "`hostname`" == "mmb01" ]; then echo 32 # blue
 	elif [ "`hostname`" == "mini" ]; then echo 37 # white
-	elif [ "`hostname`" == "fightclub.local" ]; then echo 33 # yellow
+	elif [ "`hostname`" == "fightclub" ]; then echo 33 # yellow
 	else echo 36 # cyan
 	fi
 }
@@ -100,7 +100,7 @@ require_machine mmb01 &&
     export DBUS_SESSION_BUS_ADDRESS= &&
     ssh-agent-manage
 
-require_machine fightclub.local && 
+require_machine fightclub && 
     ARCH=`uname -m` export ARCH="$ARCH"_mach &&
     alias ls="ls -G" &&
     export PATH=/opt/bin:$PATH:/Applications/Scripts:/Applications/Xcode.app/Contents/Developer/usr/bin:$HOME/.gem/bin &&
