@@ -3,7 +3,12 @@ source $HOME/.bash_functions
 
 ################################################# Color prompt
 is_screen() {
-	screen="`ps -A | grep -i "screen$" | grep -v grep`"
+	if [[ "$HOSTNAME" == "fightclub" ]]; then 
+		screen="`ps -A | grep -i "screen$" | grep -v grep`"
+	else
+		screen="`ps axuf | grep "^$USER" | grep -i "screen$" | grep -v grep`"
+	fi
+	
 	if [ "$screen" != "" ]; then echo "S "; fi
 }
 retval() {
@@ -30,7 +35,7 @@ retval2() {
 hostcolor() {
 	if   [ "`hostname`" == "mmb01" ]; then echo 32 # blue
 	elif [ "`hostname`" == "mini" ]; then echo 37 # white
-	elif [ "`hostname`" == "fightclub.local" ]; then echo 33 # yellow
+	elif [ "`hostname`" == "fightclub" ]; then echo 33 # yellow
 	else echo 36 # cyan
 	fi
 }
@@ -100,7 +105,7 @@ require_machine mmb01 &&
     export DBUS_SESSION_BUS_ADDRESS= &&
     ssh-agent-manage
 
-require_machine fightclub.local && 
+require_machine fightclub && 
     ARCH=`uname -m` export ARCH="$ARCH"_mach &&
     alias ls="ls -G" &&
     export PATH=/opt/bin:$PATH:/Applications/Scripts:/Applications/Xcode.app/Contents/Developer/usr/bin:$HOME/.gem/bin &&
