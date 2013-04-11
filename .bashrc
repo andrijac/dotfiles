@@ -69,6 +69,10 @@ function psgrep() { ps axuf | grep -v grep | grep "$@" -i --color=auto; }
 function fname() { find . -iname "*$@*"; } 
 # Fix 'cd folder' errors like 'c dfolder' which I do a lot
 function c() { cmd="cd `echo $@ | cut -c 2-`"; echo $cmd; $cmd; }
+function pdfpages() {
+    [[ -z $1 ]] && echo "Usage: pdfpages firstpage lastpage input.pdf output.pdf" && return
+    gs -sDEVICE=pdfwrite -dNOPAUSE -dBATCH -dSAFER -dFirstPage=$1 -dLastPage=$2 -sOutputFile=$4 $3 &> /dev/null
+}
 
 
 export ARCH="`uname -m`"

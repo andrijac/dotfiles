@@ -79,13 +79,14 @@ dotget() {
 
 # Upload changes to the servers which don't have internet access
 dotservers() {
-    MACHINES="mn mt"
+    MACHINES="mn mt marcel"
 
     for m in $MACHINES; do
         dir="`mktemp -d`"
         sshfs $m: $dir
         for i in `cat $HOME/.dotsync/dotfiles/list`; do cp -P $HOME/$i $dir; done
         cp -r $HOME/.dotsync $dir &> /dev/null
+        sleep 3 # to avoid 'volume is busy' errors
         fusermount -u $dir
         rmdir $dir
     done
