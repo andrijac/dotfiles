@@ -73,7 +73,7 @@ function pdfpages() {
     [[ -z $1 ]] && echo "Usage: pdfpages firstpage lastpage input.pdf output.pdf" && return
     gs -sDEVICE=pdfwrite -dNOPAUSE -dBATCH -dSAFER -dFirstPage=$1 -dLastPage=$2 -sOutputFile=$4 $3 &> /dev/null
 }
-function mcd() { mkdir $1; cd $1; }
+function mcd() { mkdir $1 && cd $1; }
 
 
 export ARCH="`uname -m`"
