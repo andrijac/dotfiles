@@ -144,7 +144,7 @@ lpr-wizard() {
         [[ "$ts" == "n" ]] && [[ "$tp" == "y" ]] && command="lpr -P $p $file -o sides=one-sided -o number-up=2"
     fi
 
-    echo $command
+    $command
 }
 
 
