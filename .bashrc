@@ -64,6 +64,7 @@ alias lpq="lpq -P Ochoa"
 alias mlq="module load qsar-bundle"
 alias pgrep="pgrep -l"
 alias p="pager"
+alias ks="ls"
 function lt() { ls -ltrsa "$@" | tail; }
 function d() { dict "$@" | pager; }
 function psgrep() { ps axuf | grep -v grep | grep "$@" -i --color=auto; }
