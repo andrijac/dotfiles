@@ -106,7 +106,8 @@ require_machine mmb01 &&
     source /srv/soft/environment-modules/3.2.10/Modules/3.2.10/init/bash &&
     alias o='xdg-open' &&
     export DBUS_SESSION_BUS_ADDRESS= &&
-    ssh-agent-manage
+    ssh-agent-manage &&
+    export PDB=/srv/projects/valor/DATA/pdb
 
 require_machine fightclub && 
     ARCH=`uname -m` export ARCH="$ARCH"_mach &&
