@@ -100,7 +100,7 @@ source $HOME/bin/j.sh
 require_machine mmb01 && 
     alias rmdir='trash' &&
     alias rm='trash' &&
-    export PATH=$PATH:/srv/soft/vmd/bin:/srv/soft/gradle/1.0-milestone9/bin &&
+    export PATH=/srv/soft/parallel/default/bin/:$PATH:/srv/soft/vmd/bin:/srv/soft/gradle/1.0-milestone9/bin &&
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/usr/lib:$HOME/usr/lib_$ARCH:$HOME/usr/local/lib:$HOME/usr/local/lib_$ARCH:/usr/local/lib &&
     alias dropbox='python $HOME/.dropbox-dist/dropbox.py' &&
     source /srv/soft/environment-modules/3.2.10/Modules/3.2.10/init/bash &&
