@@ -42,6 +42,11 @@ setxkbmap -option ctrl:nocaps
 xsetroot -solid black
 xsetroot -cursor_name arrow
 
+# Cool key modifiers
+# -Shifts, when pressed alone, generate parenthesis
+# -CapsLock (Already remapped to Control), when pressed alone, generates escape
+/opt/xcape/xcape -e 'Shift_L=parenleft;Shift_R=parenright;Control_L=Escape'
+
 export PATH=$HOME/bin:$PATH
 # Launch dwm
 /opt/dwm-6.0/dwm
