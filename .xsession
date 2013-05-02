@@ -43,14 +43,16 @@ xsetroot -solid black
 xsetroot -cursor_name arrow
 
 # Cool key modifiers
-# To have a "double" backspace (i.e. the backspace and its leftmost) we need to
-# -Hardware configure left escape, but put there the keycap for ` ~
+# To have two keys for backspace (i.e. the backspace and its leftmost) we need to
+# -Hardware configure left tilde as escape, but put there the keycap for ` ~
 # -Software configure the escape key to behave as tilde
-xmodmap -e "keycode 9 = grave asciitilde"
+xmodmap -e "keycode 9 = dead_grave asciitilde"
 # -Software configure the rightmost tilde key to behave as backspace
 xmodmap -e "keycode 49 = BackSpace"
 # -Create a new escape key with keycode 255 so that xcape can bind to it
 xmodmap -e "keycode 255 = Escape"
+# -ç using alt-c
+xmodmap -e "keycode 54 = c C a a ccedilla Ccedilla"
 # xcape configuration
 # -Shifts, when pressed alone, generate parenthesis
 # -CapsLock (Already remapped to Control), when pressed alone, generates escape
