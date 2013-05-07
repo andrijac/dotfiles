@@ -65,6 +65,7 @@ alias mlq="module load qsar-bundle"
 alias pgrep="pgrep -l"
 alias p="pager"
 alias ks="ls"
+alias tail="tail -n 40"
 function lt() { ls -ltrsa "$@" | tail; }
 function d() { dict "$@" | pager; }
 function psgrep() { ps axuf | grep -v grep | grep "$@" -i --color=auto; }
@@ -85,7 +86,7 @@ export TERM=xterm-256color
 # Misc
 shopt -s cdspell # spell check
 shopt -s histappend # history append
-umask 0002
+umask 002
 
 ############################################## Other software
 
