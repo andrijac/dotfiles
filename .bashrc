@@ -47,8 +47,16 @@ else
     . $HOME/bin/gitprompt.sh
 fi
 
-PROMPT_COMMAND='RET=$?'
-PS1='\[\033[00;`retval`m\][`retval2 \!`] \[\033[00;37m\]`is_screen`\[\033[00;`hostcolor`m\]\h\[\033[00;37m\]:\[\033[01;34m\]\w\[\033[1;95m\]`setGitPrompt`\[\033[00m\]\$ '
+PROMPT_COMMAND='RET=$?; echo [$(date +"%H:%M:%S")] >> $HOME/.bash_history_enhanced'
+PS1='\[\033[00;`retval`m\][`retval2 \!`] \[\033[01;30m\]\t \[\033[00;37m\]`is_screen`\[\033[00;`hostcolor`m\]\h\[\033[00;37m\]:\[\033[01;34m\]\w\[\033[1;95m\]`setGitPrompt`\[\033[00m\]\$ '
+
+log_commands() {
+    if [[ "$BASH_COMMAND" != "RET=\$?" ]] && [[ "$BASH_COMMAND" != 'j --add "$(pwd -P)"' ]] &&
+        [[  "$BASH_COMMAND" != 'echo [$(date +"%H:%M:%S")] >> $HOME/.bash_history_enhanced' ]]; then
+        d="`date +'%H:%M:%S'`"
+        echo -n "[$d] $BASH_COMMAND " >> $HOME/.bash_history_enhanced
+    fi
+}
 
 ############################################# Exports and aliases
 alias u="uptime"
@@ -130,4 +138,4 @@ require_machine mmb2 &&
 
 ######################################### Always the last line
 # Make 'source .bashrc' return 0
-true
+trap log_commands DEBUG
