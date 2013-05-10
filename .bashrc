@@ -63,9 +63,8 @@ alias u="uptime"
 alias ssh="ssh -Y"
 alias grep="grep -i"
 alias mkdir="mkdir -p"
-alias ll='ls -alFh'
-alias la='ls -A'
-alias l='ls -CF'
+alias ll='ls -lFh'
+alias la='ls -alFh'
 alias ls="ls --color=auto"
 alias lpr="lpr -P Ochoa"
 alias lpq="lpq -P Ochoa"
