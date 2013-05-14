@@ -64,6 +64,7 @@ alias ssh="ssh -Y"
 alias grep="grep -i"
 alias mkdir="mkdir -p"
 alias l='ls -lFh'
+alias ll='ls -lFh'
 alias la='ls -alFh'
 alias ls="ls --color=auto"
 alias lpr="lpr -P Ochoa"
