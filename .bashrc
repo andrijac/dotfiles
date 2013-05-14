@@ -73,6 +73,7 @@ alias pgrep="pgrep -l"
 alias p="pager"
 alias ks="ls"
 alias tail="tail -n 40"
+alias pp="ps axuf | pager"
 function lt() { ls -ltrsa "$@" | tail; }
 function d() { dict "$@" | pager; }
 function psgrep() { ps axuf | grep -v grep | grep "$@" -i --color=auto; }
