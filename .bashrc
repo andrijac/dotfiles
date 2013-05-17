@@ -75,7 +75,7 @@ alias p="pager"
 alias ks="ls"
 alias tail="tail -n 40"
 alias pp="ps axuf | pager"
-alias lwc="ls | wc -l"
+function lwc() { ls "$@" | wc -l; }
 function lt() { ls -ltrsa "$@" | tail; }
 function d() { dict "$@" | pager; }
 function psgrep() { ps axuf | grep -v grep | grep "$@" -i --color=auto; }
@@ -120,10 +120,10 @@ require_machine mmb01 &&
     ssh-agent-manage &&
     export PDB=/srv/projects/valor/DATA/pdb
 
-require_machine fightclub && 
+require_machine fightclub.local && 
     ARCH=`uname -m` export ARCH="$ARCH"_mach &&
     alias ls="ls -G" &&
-    export PATH=/opt/bin:$PATH:/Applications/Scripts:/Applications/Xcode.app/Contents/Developer/usr/bin:$HOME/.gem/bin &&
+    export PATH=/opt/bin:$PATH:/Applications/Scripts:/Applications/Xcode.app/Contents/Developer/usr/bin:$HOME/.gem/bin:/Applications/commandline/bin:/usr/local/bin &&
 	export GEM_HOME=$HOME/.gem &&
 	function lt() { \ls -ltrsaG "$@" | tail; } &&
 	alias o='open'
