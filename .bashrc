@@ -3,7 +3,7 @@ source $HOME/.bash_functions
 
 ################################################# Color prompt
 is_screen() {
-	if [[ "$HOSTNAME" == "fightclub" ]]; then 
+	if [[ "$HOSTNAME" == "fightclub.local" ]]; then 
 		screen="`ps -A | grep -i "screen$" | grep -v grep`"
 	else
 		screen="`ps axuf | grep "^$USER" | grep -i "screen$" | grep -v grep`"
@@ -35,7 +35,7 @@ retval2() {
 hostcolor() {
 	if   [ "`hostname`" == "mmb01" ]; then echo 32 # blue
 	elif [ "`hostname`" == "mini" ]; then echo 37 # white
-	elif [ "`hostname`" == "fightclub" ]; then echo 33 # yellow
+	elif [ "`hostname`" == "fightclub.local" ]; then echo 33 # yellow
 	else echo 36 # cyan
 	fi
 }
@@ -123,7 +123,7 @@ require_machine mmb01 &&
 require_machine fightclub.local && 
     ARCH=`uname -m` export ARCH="$ARCH"_mach &&
     alias ls="ls -G" &&
-    export PATH=/opt/bin:$PATH:/Applications/Scripts:/Applications/Xcode.app/Contents/Developer/usr/bin:$HOME/.gem/bin:/Applications/commandline/bin:/usr/local/bin &&
+    export PATH=/opt/bin:/Applications/Scripts:/Applications/Xcode.app/Contents/Developer/usr/bin:$HOME/.gem/bin:/Applications/commandline/bin:/usr/local/bin:$PATH &&
 	export GEM_HOME=$HOME/.gem &&
 	function lt() { \ls -ltrsaG "$@" | tail; } &&
 	alias o='open'
