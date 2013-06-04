@@ -83,6 +83,10 @@ function fname() { find . -iname "*$@*"; }
 # Fix 'cd folder' errors like 'c dfolder' which I do a lot
 function c() { cmd="cd `echo $@ | cut -c 2-`"; echo $cmd; $cmd; }
 function mcd() { mkdir $1 && cd $1; }
+function subtract_lines_from() { 
+    [[ -z $1 ]] || [[ -z $2 ]] && echo "\$1=big file \$2=small file" && return
+    grep -F -x -v -f $2 $1; 
+}
 
 
 export ARCH="`uname -m`"
@@ -113,7 +117,6 @@ require_machine mmb01 &&
     alias rm='trash' &&
     export PATH=/srv/soft/parallel/default/bin/:$PATH:/srv/soft/vmd/bin:/srv/soft/gradle/1.0-milestone9/bin &&
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/usr/lib:$HOME/usr/lib_$ARCH:$HOME/usr/local/lib:$HOME/usr/local/lib_$ARCH:/usr/local/lib &&
-    alias dropbox='python $HOME/.dropbox-dist/dropbox.py' &&
     source /srv/soft/environment-modules/3.2.10/Modules/3.2.10/init/bash &&
     alias o='xdg-open' &&
     export DBUS_SESSION_BUS_ADDRESS= &&
