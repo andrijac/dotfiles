@@ -87,6 +87,7 @@ function subtract_lines_from() {
     [[ -z $1 ]] || [[ -z $2 ]] && echo "\$1=big file \$2=small file" && return
     grep -F -x -v -f $2 $1; 
 }
+function mmb_backup() { ssh mmb "tar cz public_html" > backup/mmb_public_html.tar.gz; }
 
 
 export ARCH="`uname -m`"
