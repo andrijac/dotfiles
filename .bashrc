@@ -120,8 +120,12 @@ require_machine mmb01 &&
     source /srv/soft/environment-modules/3.2.10/Modules/3.2.10/init/bash &&
     alias o='xdg-open' &&
     export DBUS_SESSION_BUS_ADDRESS= &&
-    ssh-agent-manage &&
-    export PDB=/srv/projects/valor/DATA/pdb
+    ssh-agent-manage 
+
+require_machine mmb00 &&
+    export PATH=/srv/soft/parallel/default/bin/:$PATH:/srv/soft/vmd/bin:/srv/soft/gradle/1.0-milestone9/bin &&
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/usr/lib:$HOME/usr/lib_$ARCH:$HOME/usr/local/lib:$HOME/usr/local/lib_$ARCH:/usr/local/lib &&
+    source /srv/soft/environment-modules/3.2.10/Modules/3.2.10/init/bash &&
 
 require_machine fightclub.local && 
     ARCH=`uname -m` export ARCH="$ARCH"_mach &&
