@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-newemails=`cat /tmp/newemails`
+newemails=`cat /tmp/newemails | sed 's/[^0-9]//g'`
 if [ "$newemails" != "" ]; then
     if [ $newemails -eq 0 ]; then
         mailsmsg="" 

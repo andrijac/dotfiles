@@ -69,7 +69,7 @@ ssh-agent-manage() {
         # Running, re-set variables
         export SSH_AGENT_PID=$pid
         id=$(( $pid -1 ))
-        export SSH_AUTH_SOCK="`find /tmp/ssh* -iname \"agent.*\"`"
+        export SSH_AUTH_SOCK="`find /tmp/ssh* -iname \"agent.$id\"`"
     fi
 }
 
