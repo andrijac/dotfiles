@@ -40,7 +40,7 @@ hostcolor() {
 	fi
 }
 
-if [ "`hostname`" == "mmb" ] || [ "`hostname`" == "mmb2" ] || [ "`hostname`" == "dtransfer1" ] || [ "`hostname`" == "xecluster" ]; then
+if [ "`hostname`" == "mmb" ] || [ "`hostname`" == "mmb2" ] || [ "`hostname`" == "dtransfer1" ] || [ "`hostname`" == "xecluster" ] || [ "`hostname`" == "bsccv01-priv" ]; then
     # Disable setGitPrompt as the python version is too old
     function setGitPrompt() { echo; }
 else
