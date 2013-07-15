@@ -75,6 +75,7 @@ alias p="pager"
 alias ks="ls"
 alias tail="tail -n 40"
 alias pp="ps axuf | pager"
+alias sum="xargs | tr ' ' '+' | bc"
 function lwc() { ls "$@" | wc -l; }
 function lt() { ls -ltrsa "$@" | tail; }
 function d() { dict "$@" | pager; }
