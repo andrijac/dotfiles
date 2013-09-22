@@ -33,9 +33,10 @@ retval2() {
 }
 
 hostcolor() {
-	if   [ "`hostname`" == "mmb01" ]; then echo 32 # blue
+	if   [ "`hostname`" == "mmb01" ]; then echo 32 # green
 	elif [ "`hostname`" == "mini" ]; then echo 37 # white
 	elif [ "`hostname`" == "fightclub.local" ]; then echo 33 # yellow
+	elif [ "`hostname`" == "mmb07" ]; then echo 35 # violet
 	else echo 36 # cyan
 	fi
 }
@@ -89,6 +90,16 @@ function subtract_lines_from() {
     grep -F -x -v -f $2 $1; 
 }
 function mmb_backup() { ssh mmb "tar cz public_html" > backup/mmb_public_html.tar.gz; }
+function countlinechars() {
+    [[ -z $1 ]] && echo "Usage: countlinechars file" && return
+    perl -nle 'print length' $1
+}
+function histogram() {
+    [[ -z $1 ]] && echo "Usage: histogram file" && return
+    f="`tempfile --suffix=.png`"
+    R --slave <<< 'a <- read.table("'$1'"); b <- as.matrix(a); png("'$f'"); hist(b); dev.off()'
+    display $f
+}
 
 
 export ARCH="`uname -m`"
@@ -123,6 +134,14 @@ require_machine mmb01 &&
     alias o='xdg-open' &&
     export DBUS_SESSION_BUS_ADDRESS= &&
     ssh-agent-manage 
+
+require_machine mmb07 &&
+    alias rmdir='trash-put' &&
+    alias rm='trash-put' &&
+    alias o='xdg-open' &&
+    export DBUS_SESSION_BUS_ADDRESS= &&
+    ssh-agent-manage &&
+    alias rsyncbsc="rsync -avz ~/projects ~/workspace mmb01:backup/mmb07/"
 
 require_machine mmb00 &&
     export PATH=/srv/soft/parallel/default/bin/:$PATH:/srv/soft/vmd/bin:/srv/soft/gradle/1.0-milestone9/bin &&
