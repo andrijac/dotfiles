@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+echo "starting" >> /tmp/filco
+setxkbmap -layout us -variant altgr-intl -option nodeadkeys
+setxkbmap -option ctrl:nocaps
+xmodmap -e "keycode 54 = c C a a ccedilla Ccedilla"
+# -Disable "context menu" button
+xmodmap -e "keycode 135 = ISO_Level3_Shift"
+
+if [[ "$1" == "off" ]]; then
+    # Restore keys to default settings
+    xmodmap -e "keycode 9 = Escape"
+    xmodmap -e "keycode 49 = dead_grave asciitilde"
+    xmodmap -e "keycode 255 = NoSymbol"
+
+    echo "filco off" >> /tmp/filco
+elif [[ "$1" == "on" ]]; then
+    # -Software configure the escape key to behave as tilde
+    xmodmap -e "keycode 9 = dead_grave asciitilde"
+    # -Software configure the rightmost tilde key to behave as backspace
+    xmodmap -e "keycode 49 = BackSpace"
+    # -Create a new escape key with keycode 255 so that xcape can bind to it
+    xmodmap -e "keycode 255 = Escape"
+    echo "filco on" >> /tmp/filco
+else echo "filco [on|off]"
+fi
+
+killall xcape
+/opt/xcape/xcape -e 'Shift_L=parenleft;Shift_R=parenright;Control_L=Escape'
