@@ -1,9 +1,10 @@
 source $HOME/.bash_functions
 
+export laptop_host="mba.local"
 
 ################################################# Color prompt
 is_screen() {
-	if [[ "$HOSTNAME" == "fightclub.local" ]]; then 
+	if [[ "$HOSTNAME" == "$laptop_host" ]]; then 
 		screen="`ps -A | grep -i "screen$" | grep -v grep`"
 	else
 		screen="`ps axuf | grep "^$USER" | grep -i "screen$" | grep -v grep`"
@@ -35,7 +36,7 @@ retval2() {
 hostcolor() {
 	if   [ "`hostname`" == "mmb01" ]; then echo 32 # green
 	elif [ "`hostname`" == "mini" ]; then echo 37 # white
-	elif [ "`hostname`" == "fightclub.local" ]; then echo 33 # yellow
+	elif [ "`hostname`" == "$laptop_host" ]; then echo 33 # yellow
 	elif [ "`hostname`" == "mmb07" ]; then echo 35 # violet
 	else echo 36 # cyan
 	fi
@@ -146,9 +147,9 @@ require_machine mmb07 &&
 require_machine mmb00 &&
     export PATH=/srv/soft/parallel/default/bin/:$PATH:/srv/soft/vmd/bin:/srv/soft/gradle/1.0-milestone9/bin &&
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/usr/lib:$HOME/usr/lib_$ARCH:$HOME/usr/local/lib:$HOME/usr/local/lib_$ARCH:/usr/local/lib &&
-    source /srv/soft/environment-modules/3.2.10/Modules/3.2.10/init/bash &&
+    source /srv/soft/environment-modules/3.2.10/Modules/3.2.10/init/bash
 
-require_machine fightclub.local && 
+require_machine $laptop_host && 
     ARCH=`uname -m` export ARCH="$ARCH"_mach &&
     alias ls="ls -G" &&
     export PATH=/opt/bin:/Applications/Scripts:/Applications/Xcode.app/Contents/Developer/usr/bin:$HOME/.gem/bin:/Applications/commandline/bin:/usr/local/bin:$PATH &&
