@@ -101,6 +101,8 @@ function histogram() {
     R --slave <<< 'a <- read.table("'$1'"); b <- as.matrix(a); png("'$f'"); hist(b); dev.off()'
     display $f
 }
+function cipher() { openssl aes-256-cbc -a -salt -in "$1" -out "$1.aes"; }
+function decipher() { openssl aes-256-cbc -d -a -salt -in "$1" -out "`echo $1 | sed 's/\.aes//g'`"; }
 
 
 export ARCH="`uname -m`"
