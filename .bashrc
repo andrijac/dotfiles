@@ -159,7 +159,8 @@ require_machine $laptop_host &&
 
 require_machine mini && 
     export NNTPSERVER="snews://news.eternal-september.org" &&
-    alias tpy='transmission-remote-cli.py'
+    alias tpy='transmission-remote-cli.py' &&
+    export LC_ALL="en_IE.UTF-8"
 
 require_machine mmb &&
     export TERM=xterm
