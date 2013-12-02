@@ -138,10 +138,10 @@ lpr-wizard() {
         [[ "$tp" == "Y" ]] && tp=y
         [[ "$tp" != "y" ]] && tp=n
 
-        [[ "$ts" == "y" ]] && [[ "$tp" == "n" ]] && command="lpr -P $p $file"
-        [[ "$ts" == "y" ]] && [[ "$tp" == "y" ]] && command="lpr -P $p $file -o number-up=2 -o sides=two-sided-short-edge"
-        [[ "$ts" == "n" ]] && [[ "$tp" == "n" ]] && command="lpr -P $p $file -o sides=one-sided"
-        [[ "$ts" == "n" ]] && [[ "$tp" == "y" ]] && command="lpr -P $p $file -o sides=one-sided -o number-up=2"
+        [[ "$ts" == "y" ]] && [[ "$tp" == "n" ]] && command="lpr -P $p '$file'"
+        [[ "$ts" == "y" ]] && [[ "$tp" == "y" ]] && command="lpr -P $p '$file' -o number-up=2 -o sides=two-sided-short-edge"
+        [[ "$ts" == "n" ]] && [[ "$tp" == "n" ]] && command="lpr -P $p '$file' -o sides=one-sided"
+        [[ "$ts" == "n" ]] && [[ "$tp" == "y" ]] && command="lpr -P $p '$file' -o sides=one-sided -o number-up=2"
     fi
 
     $command
