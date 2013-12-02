@@ -103,7 +103,7 @@ function histogram() {
 }
 function cipher() { openssl aes-256-cbc -a -salt -in "$1" -out "$1.aes"; }
 function decipher() { openssl aes-256-cbc -d -a -salt -in "$1" -out "`echo $1 | sed 's/\.aes//g'`"; }
-
+function grepwc() { grep "$1" "$2" | wc -l; }
 
 export ARCH="`uname -m`"
 export PATH=$PATH:$HOME/bin:/usr/local/bin
