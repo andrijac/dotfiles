@@ -163,3 +163,24 @@ function select-pages() {
 
     $command &> /dev/null
 }
+
+# Print the nth line after a marker string, which is matched by regex
+# so remember to appropriately escape special chars (i.e. sdf's four dollar sign
+# should be passed as '\$\$\$\$')
+#
+# $1 n for the nth line
+# $2 the marker line
+# $3 the file
+function print-n-after() {
+    [[ -z $3 ]] && echo "Usage: print-n-after nth_line marker_line ile" && return
+    file="$3"
+    marker="$2"
+    n=$1
+
+    count=-2 
+    while read line; do
+        [[ "$line" =~ $marker ]] && count=-1 # we allow $1 to be zero (behaves like 'grep')
+        [[ $count -gt -2 ]] && count=$(($count+1))
+        [[ $count -eq n ]] && echo $line && count=-2 # reset count when line is printed
+    done < $file
+}
