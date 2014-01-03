@@ -30,6 +30,8 @@ parcellite -n -d &
 killpids="$killpids $!"
 xscreensaver -nosplash &
 killpids="$killpids $!"
+/opt/redshift-1.8/src/redshift -l 41.388:2.114 -t 6500:5100 &
+killpids="$killpids $!"
 
 echo $killpids > /tmp/killpids
 

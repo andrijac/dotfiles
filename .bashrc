@@ -137,7 +137,7 @@ require_machine mmb01 &&
     source /srv/soft/environment-modules/3.2.10/Modules/3.2.10/init/bash &&
     alias o='xdg-open' &&
     export DBUS_SESSION_BUS_ADDRESS= &&
-    ssh-agent-manage 
+    ssh-agent-manage
 
 require_machine mmb07 &&
     alias rmdir='trash-put' &&
