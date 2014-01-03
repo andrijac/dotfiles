@@ -139,14 +139,6 @@ require_machine mmb01 &&
     export DBUS_SESSION_BUS_ADDRESS= &&
     ssh-agent-manage
 
-require_machine mmb07 &&
-    alias rmdir='trash-put' &&
-    alias rm='trash-put' &&
-    alias o='xdg-open' &&
-    export DBUS_SESSION_BUS_ADDRESS= &&
-    ssh-agent-manage &&
-    alias rsyncbsc="rsync -avz ~/projects ~/workspace mmb01:backup/mmb07/"
-
 require_machine mmb00 &&
     export PATH=/srv/soft/parallel/default/bin/:$PATH:/srv/soft/vmd/bin:/srv/soft/gradle/1.0-milestone9/bin &&
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/usr/lib:$HOME/usr/lib_$ARCH:$HOME/usr/local/lib:$HOME/usr/local/lib_$ARCH:/usr/local/lib &&
@@ -158,7 +150,9 @@ require_machine $laptop_host &&
     export PATH=/opt/bin:/Applications/Scripts:/Applications/Xcode.app/Contents/Developer/usr/bin:$HOME/.gem/bin:/Applications/commandline/bin:/usr/local/bin:$PATH &&
 	export GEM_HOME=$HOME/.gem &&
 	function lt() { \ls -ltrsaG "$@" | tail; } &&
-	alias o='open'
+	alias o='open' &&
+    alias rm='trash' &&
+    alias rmdir='trash'
 
 require_machine mini && 
     export NNTPSERVER="snews://news.eternal-september.org" &&
