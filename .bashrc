@@ -85,6 +85,7 @@ function psgrep() { ps axuf | grep -v grep | grep "$@" -i --color=auto; }
 function fname() { find . -iname "*$@*"; } 
 # Fix 'cd folder' errors like 'c dfolder' which I do a lot
 function c() { cmd="cd `echo $@ | cut -c 2-`"; echo $cmd; $cmd; }
+function cd() { [[ "$1" == ",," ]] && builtin cd .. || builtin cd "$@"; }
 function mcd() { mkdir $1 && cd $1; }
 function subtract_lines_from() { 
     [[ -z $1 ]] || [[ -z $2 ]] && echo "\$1=big file \$2=small file" && return
