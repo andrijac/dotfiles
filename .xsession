@@ -48,11 +48,11 @@ xsetroot -cursor_name arrow
 # To have two keys for backspace (i.e. the backspace and its leftmost) we need to
 # -Hardware configure left tilde as escape, but put there the keycap for ` ~
 # -Software configure the escape key to behave as tilde
-xmodmap -e "keycode 9 = dead_grave asciitilde"
+#xmodmap -e "keycode 9 = dead_grave asciitilde"
 # -Software configure the rightmost tilde key to behave as backspace
-xmodmap -e "keycode 49 = BackSpace"
+#xmodmap -e "keycode 49 = BackSpace"
 # -Create a new escape key with keycode 255 so that xcape can bind to it
-xmodmap -e "keycode 255 = Escape"
+#xmodmap -e "keycode 255 = Escape"
 # -ç using alt-c
 xmodmap -e "keycode 54 = c C a a ccedilla Ccedilla"
 # xcape configuration
