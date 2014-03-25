@@ -35,7 +35,7 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-
+            
 colorscheme torte
 set ruler
 set scrolloff=5
@@ -134,4 +134,9 @@ if has("autocmd")
     autocmd Syntax * call matchadd('Debug', '\W\zs\(NOTE\|INFO\|IDEA\)')
   endif
 endif
+
+
+" syntastic
+hi SpellBad ctermbg=001
+
 

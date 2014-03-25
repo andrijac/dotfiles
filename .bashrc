@@ -153,7 +153,8 @@ require_machine $laptop_host &&
 	function lt() { \ls -ltrsaG "$@" | tail; } &&
 	alias o='open' &&
     alias rm='trash' &&
-    alias rmdir='trash'
+    alias rmdir='trash' &&
+    alias feed2mail_backup='ssh mini-local "tar cz /opt/feed2mail" > /Users/cfenollosa/Documents/Backups/feed2mail.tar.gz'
 
 require_machine mini && 
     export NNTPSERVER="snews://news.eternal-september.org" &&
