@@ -154,7 +154,7 @@ require_machine $laptop_host &&
 	alias o='open' &&
     alias rm='trash' &&
     alias rmdir='trash' &&
-    alias feed2mail_backup='ssh mini-local "tar cz /opt/feed2mail" > /Users/cfenollosa/Documents/Backups/feed2mail.tar.gz'
+    alias feed2mail_backup='ssh f2m "tar cz /opt/feed2mail" > /Users/cfenollosa/Documents/Backups/feed2mail.tar.gz'
 
 require_machine mini && 
     export NNTPSERVER="snews://news.eternal-september.org" &&
@@ -166,6 +166,10 @@ require_machine mmb &&
 
 require_machine mmb2 &&
     export TERM=xterm
+
+require_machine feenbox &&
+    export LC_ALL="en_US.UTF-8" &&
+    export PYTHONPATH=.:$PYTHONPATH
 
 ######################################### Always the last line
 # Make 'source .bashrc' return 0
